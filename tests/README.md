@@ -32,4 +32,4 @@ adb shell am instrument -w -r ru.grant.reader/ru.grant.reader.ReaderDataSelfTest
 
 This custom instrumentation is included in the debug APK. It checks real Android data and conversion paths using an isolated disposable cache directory. Inspect its `success`, `assertions` and error output; it is not a UI test and is not run by the current CI workflow.
 
-The latest public snapshot still needs a fresh device acceptance pass. Earlier manual phone testing is historical feedback, not a test result for this build.
+On 2026-11-18 the owner reported that both applications had been checked on a phone and worked. This is recorded as owner-reported manual validation. An APK-specific protocol, device details and per-scenario results were not supplied; the commands above remain available for reproducible device checks.

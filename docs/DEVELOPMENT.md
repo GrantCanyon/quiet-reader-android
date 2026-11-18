@@ -25,7 +25,9 @@ Private full-book investigation helped identify the earlier memory problem. That
 
 The host tests compile the real parser and position-migration code with minimal support classes. Those classes are test substitutes, not an Android emulator; HTML conversion and Android persistence/rendering need device checks. A passing parser suite does not validate EPUB/HTML rendering on Android, PDF gestures, saved preferences or lifecycle behavior.
 
-Before calling a build device-verified, install it on a clean test profile and check:
+On 2026-11-18 the owner reported that both applications had been checked on a phone and worked. This is owner-reported manual validation; an APK-specific protocol and per-scenario results were not supplied.
+
+For a reproducible device acceptance pass, install the chosen build on a clean test profile and check:
 
 1. Import representative permitted files in each supported format, including malformed and oversized input.
 2. Reopen books after process death and confirm text/PDF positions and preferences.
@@ -33,4 +35,4 @@ Before calling a build device-verified, install it on a clean test profile and c
 4. Check pagination after type-size changes, screen rotation, themes and PDF gestures.
 5. Run the debug data self-test described in [tests/README.md](../tests/README.md).
 
-Record the APK version, device/Android version and observed result. These steps describe remaining validation, not a claim that they have passed for this snapshot.
+Record the APK version, device/Android version and observed result. This checklist describes how to repeat the checks; the owner's general confirmation does not separately document each item.
