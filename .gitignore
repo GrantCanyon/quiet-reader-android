@@ -1,0 +1,30 @@
+# Local environment and generated build output
+.gradle/
+**/build/
+local.properties
+.idea/
+*.iml
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+/work/
+/outputs/
+/local-fixtures/
+
+# Local signing material and app data
+*.keystore
+*.jks
+key.properties
+keystore.properties
+*.apk
+*.aab
+*.db
+*.db-shm
+*.db-wal
+*.pdf
+*.epub
+*.fb2
+*.fb2.zip

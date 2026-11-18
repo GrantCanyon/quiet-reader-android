@@ -1,0 +1,1 @@
+package android.text; public final class TextUtils { public static String join(CharSequence separator,Iterable<?> values){StringBuilder result=new StringBuilder(); for(Object value:values){if(result.length()>0)result.append(separator);result.append(value);} return result.toString();}}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F6F4EE">
+    <LinearLayout android:id="@+id/shelf_panel" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="24dp" android:paddingEnd="24dp" android:paddingTop="24dp" android:paddingBottom="12dp">
+        <TextView android:id="@+id/eyebrow" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ЛИЧНАЯ БИБЛИОТЕКА" android:textSize="11sp" android:letterSpacing="0.18" android:textColor="#39766D" />
+        <TextView android:id="@+id/shelf_heading" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Тихое чтение" android:textSize="34sp" android:fontFamily="serif" android:textColor="#20332F" />
+        <TextView android:id="@+id/shelf_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="16dp" android:text="Ваши книги. Ваш темп." android:textSize="14sp" android:textColor="#6D7973" />
+        <EditText android:id="@+id/search" android:layout_width="match_parent" android:layout_height="52dp" android:singleLine="true" android:inputType="text" android:imeOptions="actionDone" android:hint="Найти книгу или автора" android:textSize="15sp" android:paddingStart="16dp" android:paddingEnd="16dp" android:importantForAutofill="no" android:contentDescription="Поиск по библиотеке" />
+        <TextView android:id="@+id/shelf_count" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginBottom="10dp" android:text="МОИ КНИГИ" android:textSize="11sp" android:letterSpacing="0.12" android:textColor="#6D7973" />
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true" android:clipToPadding="false">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:id="@+id/empty_state" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingTop="40dp" android:paddingBottom="32dp" android:gravity="center">
+                    <TextView android:id="@+id/empty_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Первая книга — начало" android:gravity="center" android:fontFamily="serif" android:textSize="24sp" android:textColor="#20332F" />
+                    <TextView android:id="@+id/empty_message" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:lineSpacingExtra="5dp" android:text="Добавьте книгу с телефона.\nEPUB, FB2, TXT, HTML или PDF.\nМесто чтения сохранится автоматически." android:gravity="center" android:textSize="14sp" android:textColor="#6D7973" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/book_list" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+        <Button android:id="@+id/import_button" android:layout_width="match_parent" android:layout_height="58dp" android:layout_marginTop="12dp" android:text="＋  Добавить книгу" android:textAllCaps="false" android:textSize="16sp" android:contentDescription="Добавить книгу из файлов телефона" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/reader_panel" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone" android:paddingTop="4dp">
+        <LinearLayout android:id="@+id/reader_header" android:orientation="horizontal" android:gravity="center_vertical" android:layout_width="match_parent" android:layout_height="64dp" android:paddingStart="8dp" android:paddingEnd="8dp">
+            <Button android:id="@+id/back_button" android:layout_width="48dp" android:layout_height="48dp" android:text="‹" android:textSize="32sp" android:padding="0dp" android:contentDescription="Вернуться в библиотеку" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:paddingStart="8dp">
+                <TextView android:id="@+id/book_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="17sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end" android:textColor="#20332F" />
+                <TextView android:id="@+id/book_author" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="12sp" android:maxLines="1" android:ellipsize="end" android:textColor="#6D7973" />
+            </LinearLayout>
+            <Button android:id="@+id/contents_button" android:layout_width="48dp" android:layout_height="48dp" android:text="☰" android:textAllCaps="false" android:textSize="21sp" android:padding="0dp" android:contentDescription="Оглавление книги" />
+            <Button android:id="@+id/settings_button" android:layout_width="48dp" android:layout_height="48dp" android:text="Aa" android:textAllCaps="false" android:textSize="20sp" android:padding="0dp" android:contentDescription="Настройки чтения" />
+        </LinearLayout>
+        <FrameLayout android:id="@+id/page_holder" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginStart="12dp" android:layout_marginEnd="12dp">
+            <TextView android:id="@+id/page_text" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="18dp" android:paddingEnd="18dp" android:paddingTop="18dp" android:paddingBottom="18dp" android:textSize="21sp" android:fontFamily="serif" android:lineSpacingMultiplier="1.25" android:textColor="#20332F" android:gravity="top" android:importantForAutofill="no" />
+            <ru.grant.reader.PdfPageView android:id="@+id/pdf_page" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone" android:contentDescription="Страница PDF; масштабирование двумя пальцами" />
+        </FrameLayout>
+        <SeekBar android:id="@+id/reading_progress" android:layout_width="match_parent" android:layout_height="36dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:max="1000" android:contentDescription="Позиция чтения" />
+        <LinearLayout android:id="@+id/reader_footer" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="58dp" android:paddingStart="12dp" android:paddingEnd="12dp" android:paddingBottom="4dp" android:gravity="center_vertical">
+            <Button android:id="@+id/previous_button" android:layout_width="64dp" android:layout_height="48dp" android:text="←" android:textSize="24sp" android:contentDescription="Предыдущая страница" />
+            <TextView android:id="@+id/page_info" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:gravity="center" android:textSize="13sp" android:textColor="#6D7973" android:clickable="true" android:focusable="true" android:contentDescription="Перейти к позиции в книге" />
+            <Button android:id="@+id/next_button" android:layout_width="64dp" android:layout_height="48dp" android:text="→" android:textSize="24sp" android:contentDescription="Следующая страница" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/busy_overlay" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:background="#E6F6F4EE" android:clickable="true" android:focusable="true" android:visibility="gone">
+        <ProgressBar android:id="@+id/loading_spinner" android:layout_width="48dp" android:layout_height="48dp" />
+        <TextView android:id="@+id/busy_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Открываем книгу…" android:textColor="#20332F" android:textSize="16sp" />
+    </LinearLayout>
+</FrameLayout>
